@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListCharacterComponent } from './views/characters/list-character/list-character.component';
 import { DetailCharacterComponent } from './views/characters/detail-character/detail-character.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListCharacterComponent,
-    DetailCharacterComponent
+    DetailCharacterComponent,
+    NavbarComponent,
+    FooterComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
