@@ -2,14 +2,18 @@
 <hr>
 <app-loading *ngIf="isLoading"></app-loading>
 
-<div class="row" *ngIf="characters.length == 0">
+<div class="row" *ngIf="characters.length == 0 && !isLoading">
     <div class="col-md-12">
         <div class="alert alert-info" role="alert">
-            <!-- No existen resultados con el término: {{ termino }} -->
+            No existen resultados con el término: {{ termino }}
         </div>
     </div>
 </div>
 
-<div class="row">
+<div class="row mb-5 p-5" *ngIf="characters.length > 0 && !isLoading">
     <app-card class="col-sm-6" [character]="item" *ngFor="let item of characters"></app-card>
+    <hr>
+    <ngb-pagination class="pagination justify-content-center" [maxSize]="10" [(page)]="page" [pageSize]="pageSize"
+        [collectionSize]="totalItems" (pageChange)="onPageChange($event)" [rotate]="true" [ellipses]="false"
+        [boundaryLinks]="true"></ngb-pagination>
 </div>

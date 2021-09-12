@@ -22,7 +22,7 @@ export abstract class BaseService<TModel> {
 
   }
 
-  public getAll(endPoint: string, queryString: string = "", offset: number = PARAMETER.offset): Observable<ResponseModel<TModel[]>> {
+  public getAll(endPoint: string, offset: number = PARAMETER.offset, queryString: string = ""): Observable<ResponseModel<TModel[]>> {
     let parameters = `ts=${PARAMETER.timestamp}&apikey=${this.API_KEY}&hash=${this.HASH}&offset=${offset}&limit=${PARAMETER.limit}&${queryString}`;
     return this._httpClient.get<ResponseModel<TModel[]>>(`${this.API_ROOT}${endPoint}?${parameters}`)
       .pipe(map(resp => {
