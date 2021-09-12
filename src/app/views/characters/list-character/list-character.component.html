@@ -1,15 +1,15 @@
-<div class="jumbotron jumbotron-fluid animated fadeIn fast">
-    <div class="container">
-        <!-- <h1 class="display-4">Comic App</h1>
-        <p class="lead">Esta es una aplicación de comics</p> -->
-        <img src="assets/img/marvel-logo.png" class="card-img-top" alt="Marvel y DC">
+<h2><img src="assets/img/characters.png" width="40" height="40" alt="">Characters</h2>
+<hr>
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div class="row" *ngIf="characters.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            <!-- No existen resultados con el término: {{ termino }} -->
+        </div>
     </div>
 </div>
-<table>
-    <tr>
-        <td>Lorem ipsum</td>
-    </tr>
-    <tr>
-        <td>Lorem ipsum</td>
-    </tr>
-</table>
+
+<div class="row">
+    <app-card class="col-sm-6" [character]="item" *ngFor="let item of characters"></app-card>
+</div>

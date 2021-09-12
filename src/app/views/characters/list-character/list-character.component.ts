@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterModel } from '../../../models/characters/character.model';
+import { StatusCodeEnum } from '../../../commons/enums/status-code.enum';
 import { APIENDPOINT } from '../../../config/configuration';
 import { CharacterService } from '../../../services/character.service';
 
@@ -9,6 +11,8 @@ import { CharacterService } from '../../../services/character.service';
   ]
 })
 export class ListCharacterComponent implements OnInit {
+  characters: Array<CharacterModel> = new Array<CharacterModel>();
+  isLoading: boolean = false;
 
   constructor(
     protected _characterService: CharacterService
@@ -17,9 +21,21 @@ export class ListCharacterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll() {
+    this.isLoading = true;
     this._characterService.getAll(APIENDPOINT.characters)
-      .subscribe(data => {
-        console.log(data);
+      .subscribe(resp => {
+        if (resp.code === StatusCodeEnum.OK) {
+          this.characters = resp.data?.results
+          this.isLoading = false;
+        }
+        else {
+          //this._swal.warning(resp.message);
+          this.isLoading = false;
+        }
       });
   }
 }

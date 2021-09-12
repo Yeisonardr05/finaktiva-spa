@@ -8,6 +8,8 @@ import { DetailCharacterComponent } from './views/characters/detail-character/de
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { CardComponent } from './components/card/card.component';
+import { FavoriteComponent } from './views/favorites/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     DetailCharacterComponent,
     NavbarComponent,
     FooterComponent,
-    LoadingComponent
+    LoadingComponent,
+    CardComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
