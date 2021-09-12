@@ -13,6 +13,7 @@ import { FavoriteComponent } from './views/favorites/favorite/favorite.component
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CardComicComponent } from './components/card-comic/card-comic.component';
 import { ModalComicComponent } from './components/modal-comic/modal-comic.component';
+import { CardFavoriteComponent } from './components/card-favorite/card-favorite.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ModalComicComponent } from './components/modal-comic/modal-comic.compon
     CardComponent,
     FavoriteComponent,
     CardComicComponent,
-    ModalComicComponent
+    ModalComicComponent,
+    CardFavoriteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { ComicStorageModel } from '../models/comics/comic-storage.model';
 import { ComicModel } from '../models/comics/comic.model';
@@ -23,8 +24,10 @@ export class ComicService extends BaseService<ComicModel> {
     newList.id = comic.id;
     newList.title = comic.title;
     newList.thumbnail = comic.thumbnail;
-    this.comicFavoriteList.push(newList);
-    this.saveStorage();
+    if (this.validateExists(comic.id)) {
+      this.comicFavoriteList.push(newList);
+      this.saveStorage();
+    }
     return newList.id;
   }
 
@@ -47,6 +50,15 @@ export class ComicService extends BaseService<ComicModel> {
       this.comicFavoriteList = JSON.parse(localStorage.getItem('data'));
     } else {
       this.comicFavoriteList = [];
+    }
+  }
+
+  validateExists(id: number): boolean {
+    let list = this.getList(id);
+    if (list == null) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

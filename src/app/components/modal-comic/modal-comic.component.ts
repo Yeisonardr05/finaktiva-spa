@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from 'selenium-webdriver';
+import { ComicService } from '../../services/comic.service';
 import { ComicModel } from '../../models/comics/comic.model';
 
 @Component({
@@ -11,7 +12,9 @@ import { ComicModel } from '../../models/comics/comic.model';
 export class ModalComicComponent implements OnInit {
   @Input() comic: ComicModel = new ComicModel();
 
-  constructor() {
+  constructor(
+    protected _comicService: ComicService,
+  ) {
 
   }
 
@@ -21,6 +24,10 @@ export class ModalComicComponent implements OnInit {
 
   clean(): void {
     this.comic = new ComicModel();
+  }
+
+  addFavorite(){
+    this._comicService.createList(this.comic);    
   }
 
 }

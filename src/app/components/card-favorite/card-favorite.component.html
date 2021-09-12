@@ -1,0 +1,10 @@
+<div class="card text-center mb-1 p-1">    
+    <img src="{{ favorite.thumbnail?.path }}.{{ favorite.thumbnail?.extension }}" class="card-img-top" width="100"
+        height="300" [alt]="">
+    <div class="card-body">
+        <h5 class="card-title">{{favorite.title}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="deleteFavorite()">
+            <img src="assets/img/btn-delete.png" alt="">
+        </button>
+    </div>
+</div>
