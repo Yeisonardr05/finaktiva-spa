@@ -1,0 +1,10 @@
+<div class="card text-center mb-1 p-1">
+    <img [src]="imgUrl" class="card-img-top" width="100" height="300" [alt]="comic.title">
+    <div class="card-body">
+        <h5 class="card-title">{{comic.title}}</h5>
+        <a [routerLink]="['/detail-character', comic.id]" class="btn btn-danger justify-content-center">VIEW MORE</a>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">{{comic.format}}</small>
+    </div>
+</div>

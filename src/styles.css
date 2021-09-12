@@ -10,8 +10,8 @@
   }
   
   .img-logo{
-    width: 130px;
-    height: 100px;
+    width: 180px;
+    height: 70px;
   }
   
   .text-p{
@@ -22,7 +22,7 @@
 
   footer{
     color: white;
-    height: 3.5rem;    
+    height: 3rem;    
     background-color: #191919;
     background-image: -moz-linear-gradient(top, #191919, #000000);
     background-image: -o-linear-gradient(top, #191919, #000000);
@@ -34,6 +34,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
+    z-index: 99999;
   }
   
   /* Animaciones */

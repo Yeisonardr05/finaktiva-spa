@@ -60,7 +60,6 @@ export class ListCharacterComponent implements OnInit {
           this.isLoading = false;
         }
         else {
-          //this._swal.warning(resp.message);
           this.isLoading = false;
         }
       });

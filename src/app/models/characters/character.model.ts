@@ -1,3 +1,4 @@
+import { ComicModel } from "../comics/comic.model";
 import { ThumbnailModel } from "../common/thumbnail.model";
 
 export class CharacterModel {
@@ -6,4 +7,5 @@ export class CharacterModel {
     public description: string;
     public resourceURI: string;
     public thumbnail: ThumbnailModel;
+    public comics: ComicModel;
 }

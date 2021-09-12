@@ -1,1 +1,42 @@
-<p>detail-character works!</p>
+<h2><img src="assets/img/characters.png" width="45" height="45" alt="">Detail Characters</h2>
+<hr>
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div class="row mb-5 p-5" *ngIf="!isLoading">
+    <h1 class="row animated fadeIn">{{ character.name | uppercase}}</h1>
+    <hr>
+    <div class="row animated fadeIn fast">
+        <div class="col-md-4">
+            <img [src]="imgUrl" [alt]="character.name" class="img-fluid">
+            <br><br>
+            <a [routerLink]="['/characters']" class="btn btn-outline-danger btn-block">Regresar</a>
+        </div>
+        <div class="col-md-8">
+            <h3>Biography: {{ character.name }} </h3>
+            <hr>
+            <p>
+                {{ character.description }}
+            </p>
+            <div class="col-md-4">
+                <img class="img-logo" src="assets/img/marvel-logo.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5 p-5">
+        <h3 class="row animated fadeIn">Comics: {{ character.name}}</h3>
+        <hr>
+        <div class="row" *ngIf="comics.length == 0">
+            <div class="col-md-12">
+                <div class="alert alert-info" role="alert">
+                    No existen resultados.
+                </div>
+            </div>
+        </div>
+        <app-card-comic class="col-sm-4" [comic]="item" *ngFor="let item of comics">
+        </app-card-comic>
+        <hr>
+        <ngb-pagination class="pagination justify-content-center" *ngIf="comics.length > 0" [maxSize]="10"
+            [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalItems" (pageChange)="onPageChange($event)"
+            [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</div>

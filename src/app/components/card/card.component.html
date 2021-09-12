@@ -6,7 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">{{character.name}}</h5>
             <p class="text-p">{{character.description}}</p>
-            <a href="#" class="btn btn-danger">VIEW MORE</a>
+            <a [routerLink]="['/detail-character', character.id]" class="btn btn-danger">VIEW MORE</a>            
         </div>
     </div>
 </div>

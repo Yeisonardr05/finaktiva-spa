@@ -38,8 +38,8 @@ export abstract class BaseService<TModel> {
       }));
   }
 
-  public getResourceURI(resourceURI: string): Observable<ResponseModel<TModel[]>> {
-    let parameters = `ts=${PARAMETER.timestamp}&apikey=${this.API_KEY}&hash=${this.HASH}`;
+  public getResourceURI(resourceURI: string, offset: number = PARAMETER.offset, limit: number = PARAMETER.limit): Observable<ResponseModel<TModel[]>> {
+    let parameters = `ts=${PARAMETER.timestamp}&apikey=${this.API_KEY}&hash=${this.HASH}&offset=${offset}&limit=${limit}`;
     return this._httpClient.get<ResponseModel<TModel[]>>(`${resourceURI}?${parameters}`)
       .pipe(map(resp => {
         return resp;

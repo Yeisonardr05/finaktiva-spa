@@ -11,6 +11,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { CardComponent } from './components/card/card.component';
 import { FavoriteComponent } from './views/favorites/favorite/favorite.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CardComicComponent } from './components/card-comic/card-comic.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     LoadingComponent,
     CardComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    CardComicComponent
   ],
   imports: [
     BrowserModule,

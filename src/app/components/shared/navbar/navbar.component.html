@@ -9,7 +9,7 @@
     </button>
 
     <form class="d-flex">
-        <input class="form-control me-2" width="500px" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="search(buscarTexto.value)" #buscarTexto>
+        <input class="form-control me-2" width="500px" type="search" placeholder="Search" aria-label="Search" #buscarTexto>
         <button class="btn btn-outline-danger" type="button" (click)="search(buscarTexto.value)">
             <img src="assets/img/search.png" width="23" height="23" alt="">
         </button>
