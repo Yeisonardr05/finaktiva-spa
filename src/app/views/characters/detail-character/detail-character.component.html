@@ -32,11 +32,14 @@
                 </div>
             </div>
         </div>
-        <app-card-comic class="col-sm-4" [comic]="item" *ngFor="let item of comics">
+        <app-card-comic class="col-sm-4" [comic]="item" (comicEvent)="getComicDetail($event)"
+            *ngFor="let item of comics">
         </app-card-comic>
         <hr>
         <ngb-pagination class="pagination justify-content-center" *ngIf="comics.length > 0" [maxSize]="10"
             [(page)]="page" [pageSize]="pageSize" [collectionSize]="totalItems" (pageChange)="onPageChange($event)"
-            [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+            [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> >
     </div>
 </div>
+
+<app-modal-comic [comic]="comicModel"></app-modal-comic>

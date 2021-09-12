@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ComicModel } from '../../models/comics/comic.model';
 
 @Component({
@@ -7,8 +7,9 @@ import { ComicModel } from '../../models/comics/comic.model';
   styles: [
   ]
 })
-export class CardComicComponent implements OnInit {  
+export class CardComicComponent implements OnInit {
   @Input() comic: ComicModel = new ComicModel();
+  @Output('comicEvent') comicEvent = new EventEmitter();
   imgUrl: string;
 
   constructor() { }
@@ -17,4 +18,7 @@ export class CardComicComponent implements OnInit {
     this.imgUrl = `${this.comic.thumbnail?.path}.${this.comic.thumbnail?.extension}`;
   }
 
+  getComicDetail() {
+    this.comicEvent.emit(this.comic);
+  }
 }

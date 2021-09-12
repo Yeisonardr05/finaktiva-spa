@@ -20,6 +20,10 @@
     overflow: hidden;
   }
 
+  .btn-favorite{
+    color: red !important;
+  }
+
   footer{
     color: white;
     height: 3rem;    

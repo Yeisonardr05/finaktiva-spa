@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APIENDPOINT, PARAMETER } from '../../../config/configuration';
 import { StatusCodeEnum } from '../../../commons/enums/status-code.enum';
@@ -6,6 +6,7 @@ import { CharacterService } from '../../../services/character.service';
 import { CharacterModel } from '../../../models/characters/character.model';
 import { ComicService } from '../../../services/comic.service';
 import { ComicModel } from '../../../models/comics/comic.model';
+import { CardComicComponent } from 'src/app/components/card-comic/card-comic.component';
 
 @Component({
   selector: 'app-detail-character',
@@ -18,6 +19,7 @@ export class DetailCharacterComponent implements OnInit {
   isLoading: boolean = false;
   character: CharacterModel = new CharacterModel();
   comics: Array<ComicModel> = new Array<ComicModel>();
+  comicModel: ComicModel = new ComicModel();
   imgUrl: string;
   collectionURI: string;
   page: number;
@@ -60,7 +62,7 @@ export class DetailCharacterComponent implements OnInit {
     this.getComicsByCharacter(this.collectionURI, pageNumber);
   }
 
-  getComicsByCharacter(urlComic: string, offset: number) {    
+  getComicsByCharacter(urlComic: string, offset: number) {
     this._comicService.getResourceURI(urlComic, offset, PARAMETER.limit - 1)
       .subscribe(resp => {
         if (resp.code === StatusCodeEnum.OK) {
@@ -72,5 +74,9 @@ export class DetailCharacterComponent implements OnInit {
         else {
         }
       });
+  }
+
+  getComicDetail(comic: ComicModel) {
+    this.comicModel = comic;
   }
 }
