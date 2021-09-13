@@ -10,5 +10,7 @@ export class ComicModel {
     public issueNumber: number;    
     public collectionURI: string;
     public thumbnail: ThumbnailModel;    
-    public prices: PriceModel[];    
+    public prices: PriceModel[];
+    public isDisable: boolean;
+    public price: number;     
 }

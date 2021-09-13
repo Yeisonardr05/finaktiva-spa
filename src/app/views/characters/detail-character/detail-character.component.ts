@@ -78,5 +78,16 @@ export class DetailCharacterComponent implements OnInit {
 
   getComicDetail(comic: ComicModel) {
     this.comicModel = comic;
+    this.comicModel.isDisable = this.validate();
+    this.comicModel.price = comic?.prices?.find(x => x.type === "printPrice").price;
+  }
+
+  validate() {
+    let favorite = this._comicService.getList(this.comicModel?.id);
+    if (favorite == undefined) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

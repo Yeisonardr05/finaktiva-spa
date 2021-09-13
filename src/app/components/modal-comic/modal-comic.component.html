@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" (click)="clean()" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <img src="assets/img/btn-close.png" alt="">
                 </button>
             </div>
@@ -24,14 +24,14 @@
             </div>
             <div class="modal-footer row justify-content-center">
                 <div class="col-md-5">
-                    <button class="btn btn-dark col-12 btn-favorite font-weight-bold" type="button" data-dismiss="modal" (click)="addFavorite()">
-                        <img src="assets/img/btn-favourites-primary.png"/> ADDED TO FAVOURITES
+                    <button class="btn btn-dark col-12 btn-favorite font-weight-bold" type="button"
+                        [disabled]="comic.isDisable" data-dismiss="modal" (click)="addFavorite()">
+                        <img src="assets/img/btn-favourites-primary.png" /> ADDED TO FAVOURITES
                     </button>
                 </div>
                 <div class="col-md-5">
                     <button class="btn btn-light col-12 btn-favorite font-weight-bold" type="button">
-                        <img src="assets/img/shopping-cart-primary.png"/> BUY FOR 
-                        <!-- {{ comic.prices[0]?.price | currency }} -->
+                        <img src="assets/img/shopping-cart-primary.png" /> BUY FOR {{ comic.price | currency }}
                     </button>
                 </div>
             </div>
