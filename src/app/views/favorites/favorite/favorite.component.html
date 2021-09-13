@@ -1,4 +1,7 @@
 <h2><img src="assets/img/favourites.png" width="45" height="45" alt=""> My favourites</h2>
 <hr>
 
-<app-card-favorite [favorite]="item" (deleteEvent)="deleteFavorite($event)" *ngFor="let item of favoriteList"></app-card-favorite>
+<app-card-favorite [favorite]="item" (deleteEvent)="deleteFavorite($event)" *ngFor="let item of favoriteList | slice: (page-1) * pageSize : page * pageSize"></app-card-favorite>
+<ngb-pagination class="pagination justify-content-center" [(page)]="page" [pageSize]="pageSize"
+        [collectionSize]="totalItems" [rotate]="true" [ellipses]="false"
+        [boundaryLinks]="true"></ngb-pagination>
